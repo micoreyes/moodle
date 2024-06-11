@@ -696,10 +696,10 @@ class graph {
           if (!$this->calculated['y_axis_left']['has_data'] && $yGrid != 'none') { // draw grid if not drawn already (above)
             switch ($yGrid) {
               case 'line':
-                ImageLine($this->image, round($gridLeft), round($tickY), round($gridRight), round($tickY), $gridColour);
+                ImageLine($this->image, (int) round($gridLeft), (int) round($tickY), (int) round($gridRight), (int) round($tickY), $gridColour);
                 break;
                case 'dash':
-                $this->image_dashed_line($this->image, round($gridLeft), round($tickY), round($gridRight), round($tickY), $gridColour); // Moodle
+                $this->image_dashed_line($this->image, (int) round($gridLeft), (int) round($tickY), (int) round($gridRight), (int) round($tickY), $gridColour); // Moodle
                 break;
             }
           }
@@ -707,7 +707,7 @@ class graph {
           if ($this->parameter['y_axis_text_right'] && !($set % $this->parameter['y_axis_text_right'])) { // test if tick should be displayed
             // draw tick
             if ($tickColour != 'none')
-              ImageLine($this->image, round($tickLeft), round($tickY), round($tickRight), round($tickY), $tickColour);
+              ImageLine($this->image, (int) round($tickLeft), (int) round($tickY), (int) round($tickRight), (int) round($tickY), $tickColour);
 
             // draw axis text...
             $coords = array('x' => $textLeft, 'y' => $tickY, 'reference' => $reference);
@@ -772,12 +772,12 @@ class graph {
 
             if (isset($this->y_format[$set]['y_axis']) && $this->y_format[$set]['y_axis'] == 'right') {
               $this->calculated['y_plot'][$set][$index] =
-                round(($this->y_data[$set][$index] - $this->calculated['y_axis_right']['min'])
+                (int) round(($this->y_data[$set][$index] - $this->calculated['y_axis_right']['min'])
                   * $this->calculated['y_axis_right']['factor']);
             } else {
               //print "$set $index<br />";
               $this->calculated['y_plot'][$set][$index] =
-                round(($this->y_data[$set][$index] - $this->calculated['y_axis_left']['min'])
+                (int) round(($this->y_data[$set][$index] - $this->calculated['y_axis_left']['min'])
                   * $this->calculated['y_axis_left']['factor']);
             }
 
@@ -817,7 +817,7 @@ class graph {
         // x tick value
         $this->calculated['x_axis']['tick_x'][$set] = $tickX;
         // if num ticks is auto then x plot value is same as x  tick
-        if ($this->parameter['x_axis_gridlines'] == 'auto') $this->calculated['x_plot'][$set] = round($tickX);
+        if ($this->parameter['x_axis_gridlines'] == 'auto') $this->calculated['x_plot'][$set] = (int) round($tickX);
         //print $this->calculated['x_plot'][$set].'<br />';
         $tickX += $xStep;
       }
@@ -1184,7 +1184,7 @@ class graph {
         else $factor = pow(10, (floor(log10(abs($max))) - $resolution) );
       }
       if ($factor > 0.1) { // To avoid some wierd rounding errors (Moodle)
-        $factor = round($factor * 1000.0) / 1000.0; // To avoid some wierd rounding errors (Moodle)
+        $factor = (int) round($factor * 1000.0) / 1000.0; // To avoid some wierd rounding errors (Moodle)
       } // To avoid some wierd rounding errors (Moodle)
 
       $max = $factor * @ceil($max / $factor);
@@ -1676,7 +1676,7 @@ class graph {
 
         // Moodle addition, plus the function parameter yoffset
         if ($yoffset) {                                           // Moodle
-            $yoffset = $yoffset - round(($bottom - $v) / 2.0);    // Moodle
+            $yoffset = $yoffset - (int) round(($bottom - $v) / 2.0);    // Moodle
             $bottom -= $yoffset;                                  // Moodle
             $v      -= $yoffset;                                  // Moodle
         }                                                         // Moodle
@@ -1784,11 +1784,11 @@ class graph {
         $t += $y0;
         $dx = ($dx < 0) ? -1 : 1;
         $m *= $dx;
-        while (round($x0) != round($x1)) {
+        while ((int) round($x0) != (int) round($x1)) {
           if (!$watchdog--) break;
           $x0 += $dx; // step to next x value
           $t += $m;   // add slope to y value
-          $y = round($t);
+          $y = (int) round($t);
           //$this->dbug("x0=$x0, x1=$x1, y=$y watchdog=$watchdog");
           $this->draw_brush($x0, $y, $size, $type, $colour);
 
@@ -1799,11 +1799,11 @@ class graph {
         $t += $x0;
         $dy = ($dy < 0) ? -1 : 1;
         $m *= $dy;
-        while (round($y0) != round($y1)) {
+        while ((int) round($y0) != (int) round($y1)) {
           if (!$watchdog--) break;
           $y0 += $dy; // step to next y value
           $t += $m;   // add slope to x value
-          $x = round($t);
+          $x = (int) round($t);
           //$this->dbug("x=$x, y0=$y0, y1=$y1 watchdog=$watchdog");
           $this->draw_brush($x, $y0, $size, $type, $colour);
 

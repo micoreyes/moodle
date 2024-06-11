@@ -92,20 +92,20 @@ class graphlib_test extends \basic_testcase {
         $graph->parameter['zero_axis'] = 'black';
         $graph->x_data = $mock['names'];
         $graph->y_data['answers1'] = $mock['buckets1'];
-        $graph->y_format['answers1'] = array('colour' => 'ltblue', 'line' => 'line', 'point' => 'square',
-                'shadow_offset' => 4, 'legend' => $mock['stractual']);
+        $graph->y_format['answers1'] = ['colour' => 'ltblue', 'line' => 'line', 'point' => 'square',
+                'shadow_offset' => 4, 'legend' => $mock['stractual']];
         $graph->y_data['answers2'] = $mock['buckets2'];
-        $graph->y_format['answers2'] = array('colour' => 'ltorange', 'line' => 'line', 'point' => 'square',
-                'shadow_offset' => 4, 'legend' => $mock['strpreferred']);
+        $graph->y_format['answers2'] = ['colour' => 'ltorange', 'line' => 'line', 'point' => 'square',
+                'shadow_offset' => 4, 'legend' => $mock['strpreferred']];
         $graph->y_data['answers3'] = $mock['buckets3'];
         $graph->y_format['answers3'] = ['colour' => 'ltred', 'line' => 'brush', 'point' => 'square',
                 'shadow_offset' => 4, 'legend' => $mock['stractual']];
         $graph->y_data['stdev1'] = $mock['stdev1'];
-        $graph->y_format['stdev1'] = array('colour' => 'ltltblue', 'bar' => 'fill',
-                'shadow_offset' => '4', 'legend' => 'none', 'bar_size' => 0.3);
+        $graph->y_format['stdev1'] = ['colour' => 'ltltblue', 'bar' => 'fill',
+                'shadow_offset' => '4', 'legend' => 'none', 'bar_size' => 0.3];
         $graph->y_data['stdev2'] = $mock['stdev2'];
-        $graph->y_format['stdev2'] = array('colour' => 'ltltorange', 'bar' => 'fill',
-                'shadow_offset' => '4', 'legend' => 'none', 'bar_size' => 0.2);
+        $graph->y_format['stdev2'] = ['colour' => 'ltltorange', 'bar' => 'fill',
+                'shadow_offset' => '4', 'legend' => 'none', 'bar_size' => 0.2];
         $graph->y_data['stdev3'] = $mock['stdev3'];
         $graph->y_format['stdev3'] = ['colour' => 'ltred', 'bar' => 'fill',
             'shadow_offset' => '4', 'legend' => 'none', 'bar_size' => 0.2];
@@ -118,11 +118,11 @@ class graphlib_test extends \basic_testcase {
         $graph->parameter['legend_offset'] = 4;
         $graph->y_tick_labels = $mock['options'];
         if (($mock['maxbuckets1'] > 0.0) && ($mock['maxbuckets2'] > 0.0) && ($mock['maxbuckets3'] > 0.0)) {
-            $graph->y_order = array('stdev1', 'answers1', 'stdev2', 'answers2', 'stdev3', 'answers3');
+            $graph->y_order = ['stdev1', 'answers1', 'stdev2', 'answers2', 'stdev3', 'answers3'];
         } else if ($mock['maxbuckets1'] > 0.0) {
-            $graph->y_order = array('stdev1', 'answers1');
+            $graph->y_order = ['stdev1', 'answers1'];
         } else if ($mock['maxbuckets2'] > 0.0) {
-            $graph->y_order = array('stdev2', 'answers2');
+            $graph->y_order = ['stdev2', 'answers2'];
         } else {
             $graph->y_order = ['stdev3', 'answers3'];
         }
