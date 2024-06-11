@@ -11,6 +11,7 @@ information provided here is intended especially for developers.
 === 4.4.1 ===
 
 * Use server timezone when constructing `\DateTimeImmutable` for the system `\core\clock` implementation.
+* Typecasting round() function to an integer in lib/graphlib.php and graphlib_test.php.
 
 === 4.4 ===
 
