@@ -55,7 +55,7 @@ class graphlib_test extends \basic_testcase {
                     'strpreferred' => 'Preferred',
                     'strimagine' => 'Imagine',
                     'buckets3' => [
-                        1, 2.75, 0.5, 3.5, 1.25, 3
+                        1, 2.75, 0.5, 3.5, 1.25, 3,
                     ],
                     'stdev1' => [
                         0.82915619758885, 1.1180339887499, 1.1180339887499, 1.1180339887499, 1.1180339887499, 1.1180339887499
@@ -64,14 +64,14 @@ class graphlib_test extends \basic_testcase {
                         0, 0, 0, 0, 0, 0
                     ],
                     'stdev3' => [
-                        0.92915619758885, 2.1180339887499, 2.1180339887499, 2.1180339887499, 2.1180339887499, 2.1180339887499
+                        0.92915619758885, 2.1180339887499, 2.1180339887499, 2.1180339887499, 2.1180339887499, 2.1180339887499,
                     ],
                     'options' => [
                         'Almost never', 'Seldom', 'Sometimes', 'Often', 'Almost always'
                     ],
                     'maxbuckets1' => 2.5,
                     'maxbuckets2' => -1,
-                    'maxbuckets3' => 3.5
+                    'maxbuckets3' => 3.5,
                 ]
             ]
         ];
