@@ -50,6 +50,13 @@ class general_cc_file extends XMLGenericDocument {
                                                $this->rootname);
         //add all namespaces
         foreach ($this->ccnamespaces as $key => $value) {
+            // The 'xmlns' prefix is reserved in the XML Namespaces specification.
+            // Calling createAttributeNS() with an 'xmlns:*' qualified name throws a
+            // DOMException ("Namespace Error") in PHP 8.3+ once a root element exists.
+            // The created attribute is never appended anywhere, so skip it safely.
+            if ($key === 'xmlns') {
+                continue;
+            }
             $dummy_attr = "{$key}:dummy";
             $this->doc->createAttributeNS($value,$dummy_attr);
         }
