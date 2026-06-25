@@ -48,7 +48,7 @@ class page11_resurce_file extends general_cc_file {
         $dtd  = $impl->createDocumentType( 'html',
                                            '-//W3C//DTD XHTML 1.0 Strict//EN',
                                            'http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd');
-        $doc = $impl->createDocument($this->ccnamespaces[$this->rootns], null, $dtd);
+        $doc = $impl->createDocument($this->ccnamespaces[$this->rootns], '', $dtd);
         $doc->formatOutput = true;
         $doc->preserveWhiteSpace = true;
         $this->doc = $doc;
