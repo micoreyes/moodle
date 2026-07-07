@@ -119,6 +119,7 @@
       <exclude>public/availability/tests/classes</exclude>
     </testsuite>
     <testsuite name="core_backup_testsuite">
+      <directory suffix="_test.php">public/backup/cc/tests</directory>
       <directory suffix="_test.php">public/backup/controller/tests</directory>
       <directory suffix="_test.php">public/backup/converter/moodle1/tests</directory>
       <directory suffix="_test.php">public/backup/moodle2/tests</directory>
